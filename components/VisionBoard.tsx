@@ -26,7 +26,7 @@ const bentoCards: BentoCard[] = [
   {
     type: "text",
     label: "AI & Impact",
-    text: "Building an AI product that solves a real-world problem \u2014 one that pushes humanity forward, not just metrics.",
+    text: "Building an AI product that solves a real-world problem. One that pushes humanity forward, not just metrics.",
     accent: "pushes humanity forward",
     span: "md:col-span-2",
     fontSize: 24,
@@ -43,7 +43,7 @@ const bentoCards: BentoCard[] = [
   {
     type: "text",
     label: "YC & Founders",
-    text: "Working alongside YC founders and builders making a real mark \u2014 learning what can\u2019t be taught in tutorials.",
+    text: "Working alongside YC founders and builders making a real mark. Learning what can't be taught in tutorials.",
     accent: "YC founders",
     span: "",
     fontSize: 20,
@@ -85,7 +85,7 @@ const bentoCards: BentoCard[] = [
   {
     type: "text",
     label: "Travel",
-    text: "Driving through the Alps. A summer in southern Italy. Road-tripping LAX to NYC. A week in Spain. Living in Manhattan. Not running from work \u2014 running toward a life worth building for.",
+    text: "Driving through the Alps. A summer in southern Italy. Road-tripping LAX to NYC. A week in Spain. Living in Manhattan. Not running from work. Running toward a life worth building for.",
     accent: "a life worth building for",
     span: "md:col-span-2",
     fontSize: 20,
@@ -111,7 +111,7 @@ const bentoCards: BentoCard[] = [
   {
     type: "text",
     label: "Brand",
-    text: "Building a personal brand and a company brand \u2014 thought leadership, product, content, all of it.",
+    text: "Building a personal brand and a company brand. Thought leadership, product, content, all of it.",
     accent: "personal brand and a company brand",
     span: "",
     fontSize: 20,

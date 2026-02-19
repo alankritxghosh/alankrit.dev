@@ -7,7 +7,7 @@ const websites = [
   {
     name: "LeadFlow Lab",
     description:
-      "Agentic AI systems that capture, qualify, and operationalize every lead — so founders stop being the bottleneck.",
+      "Agentic AI systems that capture, qualify, and operationalize every lead so founders stop being the bottleneck.",
     meta: "Built in 1 day · Next.js · Vercel",
     image: "/images/leadflow-lab.png",
     href: "https://leadflow-lab.com/",
@@ -15,7 +15,7 @@ const websites = [
   {
     name: "Signal Waitlist",
     description:
-      "Waitlist landing page for Signal — inbox management for founders. Built in a single day.",
+      "Waitlist landing page for Signal. Inbox management for founders, built in a single day.",
     meta: "Built in 1 day · Next.js · Vercel",
     image: "/images/signal-waitlist.png",
     href: "https://signal-waitlist.vercel.app/",
