@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Twitter, Linkedin, Calendar } from "lucide-react";
+import { Mail, Twitter, Linkedin, Calendar, Github } from "lucide-react";
 
 const contactLinks = [
   {
@@ -21,6 +21,12 @@ const contactLinks = [
     label: "LinkedIn",
     value: "View Profile",
     href: "https://www.linkedin.com/in/alankrit-ghosh-140614276",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "alankritxghosh",
+    href: "https://github.com/alankritxghosh",
   },
   {
     icon: Calendar,

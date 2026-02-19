@@ -63,6 +63,7 @@ const jsonLd = {
   sameAs: [
     "https://x.com/alankritxghosh",
     "https://www.linkedin.com/in/alankrit-ghosh-140614276",
+    "https://github.com/alankritxghosh",
   ],
 };
 
