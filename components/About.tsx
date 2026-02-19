@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const stats = [
   {
-    number: "2",
-    label: "Apps Built",
+    number: "1",
+    label: "App Built",
     description:
-      "Signal & [App 2] launching to App Store February 2026. Built with SwiftUI + AI tools in under 1 month.",
+      "Signal launching to App Store February 2026. Built with SwiftUI + AI tools in under 1 month.",
   },
   {
     number: "5+",
