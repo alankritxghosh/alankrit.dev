@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { ParallaxBg, RevealText, SectionLabel, AnimatedDivider, StaggerContainer, springCardVariants, FadeSlide } from "./animations";
 
 const apps = [
   {
@@ -19,177 +20,60 @@ const apps = [
   },
 ];
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 },
-};
-
 function AppCard({ app }: { app: (typeof apps)[number] }) {
   const [hovered, setHovered] = useState(false);
 
   const card = (
     <motion.div
-      variants={cardVariants}
-      transition={{ duration: 0.6 }}
+      variants={springCardVariants}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="glass"
-      style={{
-        borderRadius: 16,
-        padding: 0,
-        overflow: "hidden",
-        cursor: "pointer",
-        transition: "all 0.3s",
-        transform: hovered ? "scale(1.02)" : "scale(1)",
-        boxShadow: hovered
-          ? "0 20px 40px rgba(0, 0, 0, 0.4)"
-          : "none",
-      }}
+      className="card-seep"
+      style={{ overflow: "hidden", cursor: "pointer" }}
     >
-      {/* Image */}
       <div
-        className="h-[250px] sm:h-[300px] md:h-[400px]"
+        className="img-seamless h-[250px] sm:h-[300px] md:h-[400px]"
         style={{
-          background: app.name === "Signal"
-            ? "radial-gradient(ellipse at center, #1a1816 0%, #0d0d0d 70%)"
-            : "#111111",
-          position: "relative",
-          overflow: "hidden",
+          background: "radial-gradient(ellipse at center, #1a1816 0%, #0d0d0d 70%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <img
+        <motion.img
           src={app.image}
           alt={app.name}
           loading="lazy"
-          style={{
-            width: app.name === "Signal" ? "60%" : "100%",
-            height: app.name === "Signal" ? "60%" : "100%",
-            objectFit: app.name === "Signal" ? "contain" : "cover",
-            transition: "transform 0.3s",
-            transform: hovered ? "scale(1.1)" : "scale(1)",
-            borderRadius: app.name === "Signal" ? 20 : 0,
-          }}
+          animate={{ scale: hovered ? 1.08 : 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          style={{ width: "60%", height: "60%", objectFit: "contain", borderRadius: 20 }}
         />
       </div>
 
-      {/* Content */}
       <div className="p-[24px] md:p-[32px]">
-        {/* Status badge */}
-        <span
-          className="glass-accent"
-          style={{
-            display: "inline-block",
-            padding: "6px 12px",
-            borderRadius: 9999,
-            fontSize: 14,
-            fontWeight: 500,
-            color: "#FF3366",
-            marginBottom: 16,
-          }}
-        >
+        <span className="font-mono" style={{ display: "inline-block", padding: "6px 14px", fontSize: 10, fontWeight: 700, color: "#FF3366", marginBottom: 20, letterSpacing: "0.1em", textTransform: "uppercase", background: "rgba(255,51,102,0.06)" }}>
           {app.status}
         </span>
-
-        {/* Name */}
-        <div
-          className="text-[22px] md:text-[28px]"
-          style={{
-            fontWeight: 600,
-            color: "#FFFFFF",
-            marginBottom: 8,
-          }}
-        >
+        <div className="font-display text-[28px] md:text-[36px]" style={{ fontWeight: 700, color: "#FFFFFF", marginBottom: 8, letterSpacing: "-0.02em" }}>
           {app.name}
         </div>
-
-        {/* Subtitle */}
-        <div
-          style={{
-            fontSize: 16,
-            fontWeight: 500,
-            color: "#A0A0A0",
-            marginBottom: 12,
-          }}
-        >
+        <div className="font-mono text-[12px] md:text-[13px]" style={{ fontWeight: 400, color: "rgba(255,255,255,0.4)", marginBottom: 20, letterSpacing: "0.05em", textTransform: "uppercase" }}>
           {app.subtitle}
         </div>
-
-        {/* Description */}
-        <div
-          className="text-[15px] md:text-[16px]"
-          style={{
-            color: "#A0A0A0",
-            lineHeight: 1.6,
-            marginBottom: 24,
-          }}
-        >
+        <div className="text-[15px] md:text-[16px]" style={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 24 }}>
           {app.description}
         </div>
-
-        {/* Tech Stack */}
-        <div
-          style={{
-            fontSize: 14,
-            color: "#666666",
-            marginBottom: 8,
-          }}
-        >
-          {app.tech}
-        </div>
-
-        {/* Timeline */}
-        <div
-          style={{
-            fontSize: 14,
-            color: "#666666",
-            marginBottom: 16,
-          }}
-        >
-          {app.timeline}
-        </div>
-
-        {/* What I learned */}
-        <div
-          style={{
-            fontSize: 14,
-            fontWeight: 600,
-            color: "#FFFFFF",
-            marginBottom: 8,
-          }}
-        >
-          What I learned:
-        </div>
-        <div
-          className="text-[15px] md:text-[16px]"
-          style={{
-            color: "#A0A0A0",
-            lineHeight: 1.6,
-            fontStyle: "italic",
-          }}
-        >
-          {app.learned}
-        </div>
+        <div className="font-mono" style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", letterSpacing: "0.05em", marginBottom: 6 }}>{app.tech}</div>
+        <div className="font-mono" style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", letterSpacing: "0.05em", marginBottom: 20 }}>{app.timeline}</div>
+        <div className="font-mono" style={{ fontSize: 11, fontWeight: 700, color: "#FFFFFF", marginBottom: 8, letterSpacing: "0.1em", textTransform: "uppercase" }}>What I learned:</div>
+        <div className="text-[15px] md:text-[16px]" style={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.7, fontStyle: "italic" }}>{app.learned}</div>
       </div>
     </motion.div>
   );
 
   if (app.href) {
-    return (
-      <a
-        href={app.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Visit ${app.name}`}
-        style={{ textDecoration: "none", display: "block" }}
-      >
-        {card}
-      </a>
-    );
+    return <a href={app.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${app.name}`} style={{ textDecoration: "none", display: "block" }}>{card}</a>;
   }
-
   return card;
 }
 
@@ -197,48 +81,32 @@ export default function Apps() {
   return (
     <section
       id="work"
-      className="py-[80px] md:py-[120px] px-[16px] md:px-[24px]"
-      style={{
-        backgroundColor: "#000000",
-      }}
+      className="py-[80px] md:py-[120px] px-[16px] md:px-[24px] glow-crimson light-streak"
+      style={{ position: "relative", overflow: "hidden" }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-        {/* Heading */}
-        <h2
-          className="text-[36px] md:text-[56px] heading-glow"
-          style={{
-            fontWeight: 700,
-            color: "#FFFFFF",
-            marginBottom: 16,
-          }}
+      <ParallaxBg src="/images/blur-amber.png" gradientClass="gradient-amber" />
+
+      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <AnimatedDivider className="mb-[64px]" />
+        <SectionLabel number="003" label="WORK" style={{ marginBottom: 20 }} />
+
+        <RevealText
+          as="h2"
+          className="font-display text-[36px] md:text-[56px]"
+          style={{ fontWeight: 700, color: "#FFFFFF", marginBottom: 16, letterSpacing: "-0.03em" }}
         >
           Apps I&apos;ve Built
-        </h2>
+        </RevealText>
 
-        {/* Subheading */}
-        <p
-          className="text-[18px] md:text-[20px] mb-[40px] md:mb-[64px]"
-          style={{
-            fontWeight: 400,
-            color: "#A0A0A0",
-          }}
-        >
-          I ship to the App Store using SwiftUI and AI-assisted development.
-        </p>
+        <FadeSlide delay={0.2}>
+          <p className="font-mono text-[12px] md:text-[13px] mb-[40px] md:mb-[64px]" style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+            I ship to the App Store using SwiftUI and AI-assisted development.
+          </p>
+        </FadeSlide>
 
-        {/* Apps Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, staggerChildren: 0.2 }}
-          className="grid grid-cols-1 max-w-[640px]"
-          style={{ gap: 32 }}
-        >
-          {apps.map((app) => (
-            <AppCard key={app.name} app={app} />
-          ))}
-        </motion.div>
+        <StaggerContainer className="grid grid-cols-1 max-w-[700px]" style={{ gap: 32 }}>
+          {apps.map((app) => <AppCard key={app.name} app={app} />)}
+        </StaggerContainer>
       </div>
     </section>
   );

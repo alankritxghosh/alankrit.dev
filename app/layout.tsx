@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const spaceMono = Space_Mono({ weight: ["400", "700"], subsets: ["latin"], variable: "--font-mono" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
   title: "Alankrit Ghosh - Product Builder | Looking for YC Startup Role",
@@ -74,7 +76,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.variable} ${spaceMono.variable} ${playfair.variable} ${inter.className} grain-overlay`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

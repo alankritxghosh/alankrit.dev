@@ -1,49 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { AnimatedDivider, FlickerLabel } from "./animations";
 
 export default function Footer() {
   return (
-    <motion.footer
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      style={{
-        padding: "40px 24px",
-        backgroundColor: "transparent",
-        borderTop: "1px solid rgba(255, 255, 255, 0.06)",
-      }}
+    <footer
+      className="py-[40px] md:py-[60px] px-[16px] md:px-[24px]"
+      style={{ position: "relative", overflow: "hidden" }}
     >
-      <div
-        className="flex-col md:flex-row text-center md:text-left"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          maxWidth: 1200,
-          margin: "0 auto",
-          gap: 16,
-        }}
-      >
-        <span
-          style={{
-            fontSize: 14,
-            color: "#666666",
-          }}
-        >
-          Built with Next.js + AI tools in 2 days
-        </span>
+      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <AnimatedDivider className="mb-[32px]" />
 
-        <span
+        <div
           style={{
-            fontSize: 14,
-            color: "#666666",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "flex-end",
+            gap: 16,
+            flexWrap: "wrap",
           }}
         >
-          © 2026 Alankrit Ghosh
-        </span>
+          <FlickerLabel className="editorial-label" delay={0}>
+            BUILT WITH CURSOR + CLAUDE<br />
+            DEPLOYED ON VERCEL
+          </FlickerLabel>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="editorial-label"
+            style={{ textAlign: "right" }}
+          >
+            © {new Date().getFullYear()} ALANKRIT GHOSH<br />
+            FOLIO 01
+          </motion.div>
+        </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

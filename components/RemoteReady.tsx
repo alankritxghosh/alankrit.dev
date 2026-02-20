@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
+import { ParallaxBg, RevealText, SectionLabel, CountUp, FadeSlide, TiltCard } from "./animations";
 
 const workItems = [
   "Built all my projects independently with zero real-time oversight",
@@ -22,357 +23,165 @@ export default function RemoteReady() {
   return (
     <section
       id="remote-ready"
-      className="py-[80px] md:py-[120px] px-[16px] md:px-[24px]"
-      style={{
-        backgroundColor: "#000000",
-      }}
+      className="py-[80px] md:py-[120px] px-[16px] md:px-[24px] glow-crimson"
+      style={{ position: "relative", overflow: "hidden" }}
     >
+      <ParallaxBg src="/images/blur-city.png" gradientClass="gradient-city" />
+
       <div
-        className="grid grid-cols-1 md:grid-cols-2 gap-[40px] md:gap-[64px]"
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          alignItems: "center",
-        }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-[16px]"
+        style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}
       >
         {/* Left Column */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-        >
-          {/* Heading */}
-          <h2
-            className="text-[36px] md:text-[56px] mb-[24px] md:mb-[32px] heading-glow"
-            style={{
-              fontWeight: 700,
-              color: "#FFFFFF",
-            }}
-          >
-            Remote-Ready
-          </h2>
+        <FadeSlide direction="left">
+          <TiltCard className="p-[28px] md:p-[48px] card-seep" style={{ height: "100%" }}>
+            <SectionLabel number="006" label="REMOTE" style={{ marginBottom: 20 }} />
 
-          {/* Timezone Block */}
-          <div
-            className="p-[20px] md:p-[24px] glass"
-            style={{
-              borderRadius: 12,
-              marginBottom: 32,
-            }}
-          >
-            <div
-              className="text-[18px] md:text-[20px]"
-              style={{
-                fontWeight: 600,
-                color: "#FFFFFF",
-                marginBottom: 16,
-              }}
+            <RevealText
+              as="h2"
+              className="font-display text-[36px] md:text-[56px] mb-[24px] md:mb-[32px]"
+              style={{ fontWeight: 700, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.1 }}
             >
-              Time Zone Flexibility
+              Remote-Ready
+            </RevealText>
+
+            <div className="p-[20px] md:p-[24px] card-seep" style={{ marginBottom: 32 }}>
+              <div className="font-mono text-[11px] md:text-[12px]" style={{ fontWeight: 700, color: "#FFFFFF", marginBottom: 16, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                Time Zone Flexibility
+              </div>
+              <div style={{ fontSize: 15, color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 8 }}>
+                NOW (Feb-Mar 25): 6pm-11pm IST daily
+              </div>
+              <div className="font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.3)", marginBottom: 8, letterSpacing: "0.05em" }}>
+                That&apos;s 8:30am-1:30pm EST or 5:30am-10:30am PST
+              </div>
+              <div className="font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.3)", fontWeight: 700, marginBottom: 16, letterSpacing: "0.05em" }}>
+                5 hours of real-time overlap daily
+              </div>
+              <div className="font-mono text-[11px]" style={{ color: "#FF3366", fontWeight: 700, marginBottom: 8, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                APRIL 1st ONWARDS: Completely flexible
+              </div>
+              <div className="font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.3)", marginBottom: 16, letterSpacing: "0.05em" }}>
+                Can work any US hours needed, full EST or PST overlap.
+              </div>
+              <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", fontStyle: "italic" }}>
+                This gives you 5 weeks to ramp me up part-time, then I&apos;m full-time with complete availability.
+              </div>
             </div>
 
-            <div
-              style={{
-                fontSize: 16,
-                color: "#A0A0A0",
-                lineHeight: 1.6,
-                marginBottom: 8,
-              }}
-            >
-              NOW (Feb-Mar 25): 6pm-11pm IST daily
+            <div className="font-mono text-[11px]" style={{ fontWeight: 700, color: "#FFFFFF", marginTop: 32, marginBottom: 16, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              How I Work Remotely
             </div>
-
-            <div
-              className="text-[13px] md:text-[14px]"
-              style={{
-                color: "#666666",
-                marginBottom: 8,
-              }}
-            >
-              That&apos;s 8:30am-1:30pm EST or 5:30am-10:30am PST
-            </div>
-
-            <div
-              className="text-[13px] md:text-[14px]"
-              style={{
-                color: "#666666",
-                fontWeight: 600,
-                marginBottom: 16,
-              }}
-            >
-              5 hours of real-time overlap daily
-            </div>
-
-            <div
-              className="text-[15px] md:text-[16px]"
-              style={{
-                color: "#FF3366",
-                fontWeight: 600,
-                marginBottom: 8,
-              }}
-            >
-              APRIL 1st ONWARDS: Completely flexible
-            </div>
-
-            <div
-              className="text-[13px] md:text-[14px]"
-              style={{
-                color: "#666666",
-                marginBottom: 16,
-              }}
-            >
-              Can work any US hours needed, full EST or PST overlap.
-            </div>
-
-            <div
-              className="text-[13px] md:text-[14px]"
-              style={{
-                color: "#A0A0A0",
-                fontStyle: "italic",
-              }}
-            >
-              This gives you 5 weeks to ramp me up part-time, then I&apos;m full-time with complete availability.
-            </div>
-          </div>
-
-          {/* How I Work */}
-          <div
-            className="text-[18px] md:text-[20px]"
-            style={{
-              fontWeight: 600,
-              color: "#FFFFFF",
-              marginTop: 32,
-              marginBottom: 16,
-            }}
-          >
-            How I Work Remotely
-          </div>
-
-          <div>
-            {workItems.map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  gap: 12,
-                  alignItems: "flex-start",
-                  marginBottom: 12,
-                }}
-              >
-                <Check
-                  size={20}
-                  color="#FF3366"
-                  style={{ flexShrink: 0, marginTop: 2 }}
-                />
-                <span
-                  className="text-[15px] md:text-[16px]"
-                  style={{
-                    color: "#A0A0A0",
-                    lineHeight: 1.8,
-                  }}
+            <div>
+              {workItems.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 12 }}
                 >
-                  {item}
-                </span>
-              </div>
-            ))}
-          </div>
+                  <Check size={16} color="#FF3366" style={{ flexShrink: 0, marginTop: 3 }} />
+                  <span className="text-[14px] md:text-[15px]" style={{ color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>{item}</span>
+                </motion.div>
+              ))}
+            </div>
 
-          {/* Tools */}
-          <div
-            className="text-[16px] md:text-[18px]"
-            style={{
-              fontWeight: 600,
-              color: "#FFFFFF",
-              marginTop: 32,
-              marginBottom: 16,
-            }}
+            <div className="font-mono text-[11px]" style={{ fontWeight: 700, color: "#FFFFFF", marginTop: 32, marginBottom: 16, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Tools I Use
+            </div>
+            <div>
+              {tools.map((tool, i) => (
+                <div key={i} className="font-mono" style={{ fontSize: 11, color: "rgba(255,255,255,0.3)", lineHeight: 2.2, letterSpacing: "0.03em" }}>{tool}</div>
+              ))}
+            </div>
+          </TiltCard>
+        </FadeSlide>
+
+        {/* Right Column - Visual with counting animation */}
+        <FadeSlide direction="right" delay={0.15}>
+          <TiltCard
+            className="p-[28px] md:p-[48px] card-seep"
+            style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 40, height: "100%", position: "relative", overflow: "hidden" }}
           >
-            Tools I Use
-          </div>
-
-          <div>
-            {tools.map((tool, i) => (
-              <div
-                key={i}
-                style={{
-                  fontSize: 14,
-                  color: "#666666",
-                  lineHeight: 2,
-                }}
-              >
-                {tool}
+            <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+              <CountUp
+                target={5}
+                suffix="h"
+                className="font-display text-[64px] md:text-[80px]"
+                style={{ fontWeight: 700, color: "#FF3366", lineHeight: 1, marginBottom: 12 }}
+                duration={1.5}
+              />
+              <div className="font-mono text-[11px]" style={{ fontWeight: 700, color: "#FFFFFF", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 48 }}>
+                Daily Overlap
               </div>
-            ))}
-          </div>
-        </motion.div>
 
-        {/* Right Column - Visual */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="p-[24px] md:p-[32px] min-h-[320px] md:min-h-[400px] glass"
-          style={{
-            borderRadius: 16,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 32,
-          }}
-        >
-          {/* Timezone Overlap Visual */}
-          <div
-            className="text-[48px] md:text-[64px]"
-            style={{
-              fontWeight: 700,
-              color: "#FF3366",
-              lineHeight: 1,
-            }}
-          >
-            5h
-          </div>
-          <div
-            className="text-[18px] md:text-[20px]"
-            style={{
-              fontWeight: 600,
-              color: "#FFFFFF",
-              textAlign: "center",
-            }}
-          >
-            Daily Overlap
-          </div>
-
-          {/* Bars */}
-          <div style={{ width: "100%", maxWidth: 320 }}>
-            {/* IST Bar */}
-            <div style={{ marginBottom: 16 }}>
-              <div
-                style={{
-                  fontSize: 12,
-                  color: "#666666",
-                  marginBottom: 6,
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                IST (India)
-              </div>
-              <div
-                style={{
-                  width: "100%",
-                  height: 32,
-                  backgroundColor: "#1A1A1A",
-                  borderRadius: 6,
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <div
-                  className="text-[10px] md:text-[11px]"
-                  style={{
-                    position: "absolute",
-                    right: 0,
-                    top: 0,
-                    width: "42%",
-                    height: "100%",
-                    backgroundColor: "rgba(255, 51, 102, 0.3)",
-                    borderRadius: 6,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#FF3366",
-                    fontWeight: 600,
-                  }}
-                >
-                  6pm – 11pm
+              <div style={{ width: "100%", maxWidth: 280 }}>
+                {/* IST Bar — fills on scroll */}
+                <div style={{ marginBottom: 20 }}>
+                  <div className="font-mono" style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", marginBottom: 6, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>
+                    IST (India)
+                  </div>
+                  <div style={{ width: "100%", height: 28, backgroundColor: "rgba(255,255,255,0.03)", position: "relative", overflow: "hidden" }}>
+                    <motion.div
+                      className="font-mono"
+                      initial={{ width: "0%" }}
+                      whileInView={{ width: "42%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ position: "absolute", right: 0, top: 0, height: "100%", backgroundColor: "rgba(255,51,102,0.12)", display: "flex", alignItems: "center", justifyContent: "center", color: "#FF3366", fontWeight: 700, fontSize: 9, letterSpacing: "0.05em" }}
+                    >
+                      6pm – 11pm
+                    </motion.div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            {/* EST Bar */}
-            <div style={{ marginBottom: 16 }}>
-              <div
-                style={{
-                  fontSize: 12,
-                  color: "#666666",
-                  marginBottom: 6,
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
-              >
-                EST (US East)
-              </div>
-              <div
-                style={{
-                  width: "100%",
-                  height: 32,
-                  backgroundColor: "#1A1A1A",
-                  borderRadius: 6,
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <div
-                  className="text-[10px] md:text-[11px]"
-                  style={{
-                    position: "absolute",
-                    left: 0,
-                    top: 0,
-                    width: "42%",
-                    height: "100%",
-                    backgroundColor: "rgba(99, 102, 241, 0.3)",
-                    borderRadius: 6,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#6366F1",
-                    fontWeight: 600,
-                  }}
-                >
-                  8:30am – 1:30pm
+                {/* EST Bar — fills with delay */}
+                <div style={{ marginBottom: 20 }}>
+                  <div className="font-mono" style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", marginBottom: 6, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.15em" }}>
+                    EST (US East)
+                  </div>
+                  <div style={{ width: "100%", height: 28, backgroundColor: "rgba(255,255,255,0.03)", position: "relative", overflow: "hidden" }}>
+                    <motion.div
+                      className="font-mono"
+                      initial={{ width: "0%" }}
+                      whileInView={{ width: "42%" }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ position: "absolute", left: 0, top: 0, height: "100%", backgroundColor: "rgba(99,102,241,0.12)", display: "flex", alignItems: "center", justifyContent: "center", color: "#6366F1", fontWeight: 700, fontSize: 9, letterSpacing: "0.05em" }}
+                    >
+                      8:30am – 1:30pm
+                    </motion.div>
+                  </div>
                 </div>
+
+                <motion.div
+                  className="font-mono"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 1.2, duration: 0.6 }}
+                  style={{ textAlign: "center", fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 8, letterSpacing: "0.1em" }}
+                >
+                  5 hours real-time collaboration
+                </motion.div>
               </div>
-            </div>
 
-            {/* Overlap indicator */}
-            <div
-              style={{
-                textAlign: "center",
-                fontSize: 13,
-                color: "#A0A0A0",
-                marginTop: 8,
-              }}
-            >
-              5 hours real-time collaboration
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 1.5, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                style={{ marginTop: 40, padding: "12px 24px", background: "rgba(255,51,102,0.06)", textAlign: "center" }}
+              >
+                <div className="font-mono" style={{ fontSize: 10, fontWeight: 700, color: "#FF3366", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                  From April 1st: Any US hours
+                </div>
+              </motion.div>
             </div>
-          </div>
-
-          {/* April callout */}
-          <div
-            style={{
-              backgroundColor: "rgba(255, 51, 102, 0.1)",
-              border: "1px solid rgba(255, 51, 102, 0.3)",
-              borderRadius: 8,
-              padding: "12px 20px",
-              textAlign: "center",
-            }}
-          >
-            <div
-              style={{
-                fontSize: 14,
-                fontWeight: 600,
-                color: "#FF3366",
-              }}
-            >
-              From April 1st: Any US hours
-            </div>
-          </div>
-        </motion.div>
+          </TiltCard>
+        </FadeSlide>
       </div>
     </section>
   );

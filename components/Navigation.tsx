@@ -51,21 +51,21 @@ export default function Navigation() {
         top: 0,
         width: "100%",
         zIndex: 50,
-        height: 80,
-        borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
+        height: 72,
+        borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.06)" : "1px solid transparent",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
         backgroundColor: scrolled
-          ? "rgba(0, 0, 0, 0.95)"
-          : "rgba(0, 0, 0, 0.8)",
-        transition: "background-color 0.3s",
+          ? "rgba(0, 0, 0, 0.9)"
+          : "transparent",
+        transition: "all 0.4s ease",
       }}
     >
       <div
         style={{
           maxWidth: 1200,
           margin: "0 auto",
-          padding: "0 24px",
+          padding: "0 28px",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -75,18 +75,20 @@ export default function Navigation() {
         {/* Logo */}
         <button
           onClick={() => scrollToSection("#top")}
+          className="font-mono"
           style={{
             background: "none",
             border: "none",
             cursor: "pointer",
-            fontSize: 20,
+            fontSize: 13,
             fontWeight: 700,
             color: "#FFFFFF",
-            letterSpacing: "-0.02em",
+            letterSpacing: "0.15em",
             padding: 0,
             transition: "opacity 0.3s",
+            textTransform: "uppercase",
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.6")}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
         >
           AG
@@ -97,7 +99,7 @@ export default function Navigation() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 32,
+            gap: 40,
           }}
           className="hidden md:flex"
         >
@@ -105,18 +107,21 @@ export default function Navigation() {
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href)}
+              className="font-mono nav-link-draw"
               style={{
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                fontSize: 16,
-                fontWeight: 500,
-                color: "#A0A0A0",
-                padding: 0,
+                fontSize: 11,
+                fontWeight: 400,
+                color: "rgba(255,255,255,0.4)",
+                padding: "0 0 4px 0",
                 transition: "color 0.3s",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "#FFFFFF")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#A0A0A0")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.4)")}
             >
               {link.label}
             </button>
@@ -138,7 +143,7 @@ export default function Navigation() {
           }}
           aria-label="Open menu"
         >
-          <Menu size={24} color="#FFFFFF" />
+          <Menu size={22} color="#FFFFFF" />
         </button>
       </div>
 
@@ -146,9 +151,9 @@ export default function Navigation() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
             style={{
               position: "fixed",
@@ -170,8 +175,8 @@ export default function Navigation() {
               onClick={() => setMobileOpen(false)}
               style={{
                 position: "absolute",
-                top: 28,
-                right: 24,
+                top: 24,
+                right: 28,
                 background: "none",
                 border: "none",
                 cursor: "pointer",
@@ -182,28 +187,34 @@ export default function Navigation() {
               }}
               aria-label="Close menu"
             >
-              <X size={24} color="#FFFFFF" />
+              <X size={22} color="#FFFFFF" />
             </button>
 
-            {navLinks.map((link) => (
-              <button
+            {navLinks.map((link, i) => (
+              <motion.button
                 key={link.href}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.4 }}
                 onClick={() => scrollToSection(link.href)}
+                className="font-mono"
                 style={{
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  fontSize: 16,
-                  fontWeight: 500,
-                  color: "#A0A0A0",
+                  fontSize: 14,
+                  fontWeight: 400,
+                  color: "rgba(255,255,255,0.5)",
                   padding: 0,
                   transition: "color 0.3s",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#FFFFFF")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#A0A0A0")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
               >
                 {link.label}
-              </button>
+              </motion.button>
             ))}
           </motion.div>
         )}

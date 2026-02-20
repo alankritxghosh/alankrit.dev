@@ -20,7 +20,9 @@ const config: Config = {
         borderHover: '#2A2A2A',
       },
       fontFamily: {
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
+        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        mono: ['var(--font-mono)', 'Courier New', 'monospace'],
       },
     },
   },
