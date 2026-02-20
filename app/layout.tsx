@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Mono, Playfair_Display } from "next/font/google";
+import { DM_Sans, Space_Mono, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
 const spaceMono = Space_Mono({ weight: ["400", "700"], subsets: ["latin"], variable: "--font-mono" });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-display" });
+const bodoni = Bodoni_Moda({ subsets: ["latin"], variable: "--font-display" });
 
 export const metadata: Metadata = {
   title: "Alankrit Ghosh - Product Builder | Looking for YC Startup Role",
@@ -76,7 +76,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceMono.variable} ${playfair.variable} ${inter.className} grain-overlay`}>
+      <body className={`${dmSans.variable} ${spaceMono.variable} ${bodoni.variable} ${dmSans.className} grain-overlay`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

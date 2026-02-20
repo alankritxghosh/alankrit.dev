@@ -20,8 +20,8 @@ const config: Config = {
         borderHover: '#2A2A2A',
       },
       fontFamily: {
-        sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        display: ['var(--font-display)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['var(--font-display)', 'Didot', 'Bodoni MT', 'serif'],
         mono: ['var(--font-mono)', 'Courier New', 'monospace'],
       },
     },
