@@ -3,6 +3,8 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Apps from "@/components/Apps";
 import Websites from "@/components/Websites";
+import PRDs from "@/components/PRDs";
+import GithubRepos from "@/components/GithubRepos";
 import Strategic from "@/components/Strategic";
 import RemoteReady from "@/components/RemoteReady";
 import TechStack from "@/components/TechStack";
@@ -18,6 +20,8 @@ export default function Home() {
       <About />
       <Apps />
       <Websites />
+      <GithubRepos />
+      <PRDs />
       <Strategic />
       <RemoteReady />
       <TechStack />

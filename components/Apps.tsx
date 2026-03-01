@@ -16,7 +16,22 @@ const apps = [
     learned:
       "Users want one-click automation, not complex workflows. Scrapped multi-step setup for smart defaults. Cut onboarding from 5 steps to 1 button.",
     image: "/images/signal-logo.png",
+    imageStyle: "logo" as const,
     href: "https://signal-waitlist.vercel.app/",
+  },
+  {
+    name: "QuickShare",
+    subtitle: "Instant File Sharing for Mac",
+    status: "Live — Free Download",
+    description:
+      "Drop a file, get a temporary download link in seconds. No browser, no sign-up, no friction. Links expire in 24 hours.",
+    tech: "Swift · Cloudflare Workers · R2 Storage",
+    timeline: "Built and shipped in 1 week",
+    learned:
+      "The best sharing tool is the one with zero steps. Removed every feature that wasn't drag → link → paste. Auto-copy to clipboard was the unlock.",
+    image: "/images/quickshare-hero.png",
+    imageStyle: "screenshot" as const,
+    href: "https://quickshare-site.pages.dev/",
   },
 ];
 
@@ -34,10 +49,11 @@ function AppCard({ app }: { app: (typeof apps)[number] }) {
       <div
         className="img-seamless h-[250px] sm:h-[300px] md:h-[400px]"
         style={{
-          background: "radial-gradient(ellipse at center, #1a1816 0%, #0d0d0d 70%)",
+          background: app.imageStyle === "screenshot" ? "#0A0A0A" : "radial-gradient(ellipse at center, #1a1816 0%, #0d0d0d 70%)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          overflow: "hidden",
         }}
       >
         <motion.img
@@ -46,7 +62,11 @@ function AppCard({ app }: { app: (typeof apps)[number] }) {
           loading="lazy"
           animate={{ scale: hovered ? 1.08 : 1 }}
           transition={{ type: "spring", stiffness: 200, damping: 20 }}
-          style={{ width: "60%", height: "60%", objectFit: "contain", borderRadius: 20 }}
+          style={
+            app.imageStyle === "screenshot"
+              ? { width: "100%", height: "100%", objectFit: "cover", objectPosition: "top", borderRadius: 0 }
+              : { width: "60%", height: "60%", objectFit: "contain", borderRadius: 20 }
+          }
         />
       </div>
 
@@ -104,7 +124,7 @@ export default function Apps() {
           </p>
         </FadeSlide>
 
-        <StaggerContainer className="grid grid-cols-1 max-w-[700px]" style={{ gap: 32 }}>
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2" style={{ gap: 32 }}>
           {apps.map((app) => <AppCard key={app.name} app={app} />)}
         </StaggerContainer>
       </div>

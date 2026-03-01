@@ -32,17 +32,43 @@ function WebsiteCard({ site }: { site: (typeof websites)[number] }) {
       style={{ perspective: 800 }}
     >
       <TiltCard className="card-seep" style={{ overflow: "hidden", cursor: site.href ? "pointer" : "default" }}>
-        <div className="img-seamless h-[200px] md:h-[240px]" style={{ backgroundColor: "#0A0A0A" }}>
-          <motion.img
-            src={site.image}
-            alt={site.name}
-            loading="lazy"
-            className="img-dark-treat"
-            animate={{ scale: hovered ? 1.04 : 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
-          />
-        </div>
+        {site.image ? (
+          <div className="img-seamless h-[200px] md:h-[240px]" style={{ backgroundColor: "#0A0A0A" }}>
+            <motion.img
+              src={site.image}
+              alt={site.name}
+              loading="lazy"
+              className="img-dark-treat"
+              animate={{ scale: hovered ? 1.04 : 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+            />
+          </div>
+        ) : (
+          <div
+            className="img-seamless h-[200px] md:h-[240px]"
+            style={{
+              background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <motion.div
+              animate={{ scale: hovered ? 1.08 : 1 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              style={{
+                fontSize: 48,
+                fontWeight: 800,
+                color: "rgba(255,255,255,0.08)",
+                letterSpacing: "-0.04em",
+                fontFamily: "var(--font-display)",
+              }}
+            >
+              {site.name}
+            </motion.div>
+          </div>
+        )}
         <div className="p-[20px] md:p-[24px]">
           <div className="font-display text-[20px] md:text-[24px]" style={{ fontWeight: 700, color: "#FFFFFF", marginBottom: 10, letterSpacing: "-0.02em" }}>{site.name}</div>
           <div style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.6, marginBottom: 14 }}>{site.description}</div>
