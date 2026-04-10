@@ -4,12 +4,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 import { FlickerLabel } from "./animations";
 
-const scrollTo = (id: string) => {
-  const el = document.querySelector(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-};
-
-const titleWords = "Fast-shipping builder seeking remote product role at US-based YC startup.".split(" ");
+const titleWords = "AI Product Builder & Studio Founder | Shipping intelligent systems and digital growth engines.".split(" ");
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -198,7 +193,7 @@ export default function Hero() {
             style={{ position: "absolute", right: 28, bottom: "35%", textAlign: "right" }}
           >
             AVAILABLE NOW<br />
-            6PM–11PM IST
+            FULL-TIME
           </FlickerLabel>
         </div>
 
@@ -237,8 +232,8 @@ export default function Hero() {
               AVAILABILITY
             </div>
             <div className="font-mono text-[12px] md:text-[13px]" style={{ color: "#FFFFFF", lineHeight: 1.6 }}>
-              <div>NOW: 6pm-11pm IST (8:30am-1:30pm EST)</div>
-              <div style={{ color: "#FF3366", fontWeight: 700 }}>Full-time from: April 1, 2026</div>
+              <div>STATUS: <span style={{ color: "#FF3366", fontWeight: 700 }}>FULLY AVAILABLE</span></div>
+              <div>Complete US timezone flexibility</div>
             </div>
           </motion.div>
 

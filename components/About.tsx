@@ -5,10 +5,10 @@ import { ParallaxBg, RevealText, SectionLabel, StaggerContainer, springCardVaria
 
 const stats = [
   {
-    number: "1",
-    label: "App Built",
+    number: "5",
+    label: "Apps & AI Systems Built",
     description:
-      "Signal launching to App Store February 2026. Built with SwiftUI + AI tools in under 1 month.",
+      "Tempo, AgencyOS, Signal, QuickShare, and Brochure Studio.",
   },
   {
     number: "5+",
@@ -17,10 +17,10 @@ const stats = [
       "High-conversion landing pages built in 2-week sprints for B2B companies.",
   },
   {
-    number: null,
-    label: "Available April 1st",
+    number: "1",
+    label: "Digital Growth Studio",
     description:
-      "Part-time now (5 hours daily). Full-time with complete US timezone flexibility from April 1, 2026.",
+      "Operating LeadFlow Lab: a boutique studio generating inbound client revenue through smart agentic pipelines.",
   },
 ];
 

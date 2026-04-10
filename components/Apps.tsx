@@ -6,9 +6,65 @@ import { ParallaxBg, RevealText, SectionLabel, AnimatedDivider, StaggerContainer
 
 const apps = [
   {
+    name: "LeadFlow Lab",
+    subtitle: "Digital Growth Studio for Interior Designers",
+    status: "Founder",
+    description:
+      "Founded a specialized growth studio offering end-to-end inbound engines for boutique interior design firms. Scaled via AI-assisted marketing retainers, website builds, and automated lead capture bots.",
+    tech: "Inbound Marketing · WhatsApp Automation · Agentic Orchestration",
+    timeline: "Active Studio",
+    learned:
+      "A land-and-expand revenue model: Clients start with high-leverage one-offs (websites, AI concept brochures) and naturally graduate to full-stack marketing retainers.",
+    image: "/images/leadflow-lab.png",
+    imageStyle: "screenshot" as const,
+    href: "https://leadflow-lab.com/",
+  },
+  {
+    name: "Brochure Studio",
+    subtitle: "Autonomous AI Architectural Visualization Pipeline",
+    status: "Internal Product",
+    description:
+      "Engineered a headless multi-agent pipeline that transforms raw client briefs into print-ready PDF concept brochures featuring photorealistic interior renders.",
+    tech: "Claude API · Flux Pro · Agentic Layouts",
+    timeline: "Internal Tooling",
+    learned:
+      "Managed heavy context-windows by securely splitting operations: Brief Intake → Scene Manifest → JSON Image Prompts → Render Generation → Copywriting → Layout Assembly.",
+    image: "/images/brochure-studio.png",
+    imageStyle: "screenshot" as const,
+    href: "https://github.com/alankritxghosh/",
+  },
+  {
+    name: "AgencyOS",
+    subtitle: "Gemini API, Supabase, Slack API, Node.js",
+    status: "GitHub",
+    description:
+      "Built a full multi-agent system inside Slack. Agents handle outreach, content creation, and market monitoring, with all decisions routed through a central #command-center channel.",
+    tech: "Agentic AI · Multi-Agent Architecture",
+    timeline: "Internal tooling for LeadFlow Lab",
+    learned:
+      "Designed the agent task decomposition architecture, QA audit framework, and go-live checklist for production readiness.",
+    image: "/images/agencyos-github.png",
+    imageStyle: "screenshot" as const,
+    href: "https://github.com/alankritxghosh/agency-os",
+  },
+  {
+    name: "Tempo",
+    subtitle: "Next.js 14, Supabase, Gemini 3 Flash, Remotion",
+    status: "GitHub | Live",
+    description:
+      "Built a generative AI product that turns app screenshots and copy into motion design videos, targeting indie founders on Product Hunt and X.",
+    tech: "Full-Stack AI · Motion Design · PostHog",
+    timeline: "Live Product",
+    learned:
+      "Supports standard and Cinematic mode, which layers Seedance image-to-video before Remotion compositing for higher quality output.",
+    image: "/images/tempo-hero.png",
+    imageStyle: "screenshot" as const,
+    href: "https://tempo-app-two.vercel.app/",
+  },
+  {
     name: "Signal",
     subtitle: "macOS Gmail Automation",
-    status: "Launching to App Store Feb 2026",
+    status: "Live — Downloadable",
     description:
       "Intelligent inbox management and automation for Gmail on macOS. Built in 2 weeks using SwiftUI + Claude for AI-assisted development.",
     tech: "SwiftUI · Gmail API · Firebase",
@@ -115,12 +171,12 @@ export default function Apps() {
           className="font-display text-[36px] md:text-[56px]"
           style={{ fontWeight: 700, color: "#FFFFFF", marginBottom: 16, letterSpacing: "-0.03em" }}
         >
-          Apps I&apos;ve Built
+          Products & Studios
         </RevealText>
 
         <FadeSlide delay={0.2}>
           <p className="font-mono text-[12px] md:text-[13px] mb-[40px] md:mb-[64px]" style={{ color: "rgba(255,255,255,0.4)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
-            I ship to the App Store using SwiftUI and AI-assisted development.
+            I build intelligent systems and spin them up into growth engines.
           </p>
         </FadeSlide>
 
