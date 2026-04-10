@@ -16,6 +16,13 @@ export default function Hero() {
   const bgScale = useTransform(scrollYProgress, [0, 1], [1.05, 1.2]);
   const smoothBgY = useSpring(bgY, { stiffness: 40, damping: 30 });
 
+  const handleScrollTo = (id: string) => {
+    const el = document.querySelector(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -244,7 +251,7 @@ export default function Hero() {
             style={{ display: "flex", gap: 12, alignItems: "center" }}
           >
             <motion.button
-              onClick={() => scrollTo("#work")}
+              onClick={() => handleScrollTo("#work")}
               whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(255,51,102,0.3)" }}
               whileTap={{ scale: 0.95 }}
               className="font-mono btn-glow glass-accent"
@@ -264,7 +271,7 @@ export default function Hero() {
             </motion.button>
 
             <motion.button
-              onClick={() => scrollTo("#contact")}
+              onClick={() => handleScrollTo("#contact")}
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
               whileTap={{ scale: 0.95 }}
               className="font-mono glass"
